@@ -1,18 +1,36 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <MaterialTodo/>
+    <LinearTodo/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import MaterialTodo from '@/components/MaterialTodo';
+import LinearTodo from '@/components/LinearTodo';
+import HelloWorld from '@/components/HelloWorld';
+import * as Mutation from '@/mutation-types';
 
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
-}
+	name: 'home',
+	components: {
+		HelloWorld,
+		MaterialTodo,
+		LinearTodo,
+	},
+	subscriptions: {
+		[Mutation.ADD_TODO]({ type, payload }, state) {
+			console.log(payload);
+		},
+	},
+};
 </script>
+
+<style lang="stylus" scoped>
+.home {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: space-around;
+}
+</style>

@@ -1,4 +1,4 @@
-<template>
+<template functional>
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
@@ -8,12 +8,21 @@
   </div>
 </template>
 <style lang="stylus">
+html, body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  margin:0px;
+}
 #app
   font-family 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
   text-align center
   color #2c3e50
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
 
 #nav
   padding 30px
